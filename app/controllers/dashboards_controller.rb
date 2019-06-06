@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
 
   def show
     @user = current_user
-    @companies = @user.companies
+    @portfolio = @user.portfolio
   end
 
   def transactions
