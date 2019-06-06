@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       return render :new
     end
     session[:user_id] = @user.id
-    redirect_to profile_path, notice: "Welcome #{@user.name}!"
+    redirect_to dashboard_path, notice: "Welcome #{@user.name}!"
   end
 
   private
