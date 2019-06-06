@@ -1,2 +1,29 @@
 <h1>Portfolio</h1>
 
+<div>
+  <div><%= @user.name %></div>
+  <div><%= @user.email %></div>
+  <div>$<%= @user.balance %></div>
+</div>
+
+<div>
+  <div id="portfolio-stocks">
+    <% @portfolio.each do |company_name, comp_hash| %>
+      <div class="transaction-item">
+        <div class="portfolio-stock-name">
+          <%= company_name %>
+        </div>
+        <div class="portfolio-item-shares">
+          <%= pluralize(comp_hash[:shares], 'share')%>
+        </div>
+        <div class="portfolio-stock-value">
+          $<%= comp_hash[:value] %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div id="portfolio-stock-buy">
+
+  </div>
+</div>
