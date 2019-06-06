@@ -24,6 +24,16 @@
   </div>
   
   <div id="portfolio-stock-buy">
-
+    <div>
+      <h3>Buy Stock</h3>
+      Cash - $<%= @user.balance %>
+    </div>
+    <div>
+      <%= form_tag('/transactions') do %>
+        <%= text_field_tag 'ticker_symbol' %>
+        <%= text_field_tag 'shares_quantity' %>
+        <%= submit_tag 'Buy' %>
+      <% end %>
+    </div>
   </div>
 </div>
