@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.string :password_digest
-      t.string :balance, default: 5000.00
+      t.decimal :balance, default: 5000.00, precision: 15, scale: 2
 
       t.timestamps
     end
