@@ -1,0 +1,14 @@
+<h1>Transactions</h1>
+
+<div class="transactions-list">
+  <% @transactions.each do |t| %>
+    <div class="transaction-item">
+      <div class="transaction-stock-name">
+        BUY (<%= t.company.ticker_symbol %>)
+      </div>
+      <div class="transaction-stock-price">
+        <%= pluralize(t.shares_quantity, 'share') %> @ $<%= t.price_per_share %>
+      </div>
+    </div>
+  <% end %>
+</div>
