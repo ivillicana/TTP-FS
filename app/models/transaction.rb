@@ -4,7 +4,7 @@ class Transaction < ApplicationRecord
 
   def self.attempt_transaction(company_hash, user, quantity)
     transaction_price = (company_hash["latestPrice"] * quantity)
-    return false if user.balance < transaction_price
+    return false if user.balance < transaction_price || quantity <= 0
 
     company = Company.find_or_create_by(ticker_symbol: company_hash["symbol"], name: company_hash["companyName"])
     transaction_hash = {
