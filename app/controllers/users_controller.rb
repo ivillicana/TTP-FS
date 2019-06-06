@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    
+    @user = User.create(user_params)
+    if @user.errors.any?
+      flash[:notice] = @user.errors.full_messages.join(", ")
+      render :new
+    end
+    session[:user_id] = @user.id
+    redirect_to profile_path, notice: "Welcome #{@user.name}!"
   end
 
   private
