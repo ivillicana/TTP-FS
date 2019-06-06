@@ -4,13 +4,14 @@ class TransactionsController < ApplicationController
   def create
     ticker = transaction_params[:ticker_symbol]
     quantity = transaction_params[:shares_quantity].to_f
+
+    # redirect back to dashboard if quantity is not whole or <= 0
     return redirect_to dashboard_path, notice: "Please enter valid values" if !validate_quantity(quantity)
 
     response = Faraday.get("https://api.iextrading.com/1.0/stock/#{ticker}/quote")
     if response.success?
       company_hash = JSON.parse(response.body)
-      Transaction.attempt_transaction(company_hash, current_user, quantity)
-      flash[:notice] = "Successful Transaction"
+      flash[:notice] = Transaction.attempt_transaction(company_hash, current_user, quantity)
     else
       flash[:notice] = "Please enter valid values"
     end
