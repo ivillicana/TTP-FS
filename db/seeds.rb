@@ -58,3 +58,10 @@ companies.each_with_index do |comp_hash, idx|
   company.transactions.create(transactions[idx])
 end
 
+user.transactions.create({
+  shares_quantity: 78,
+  price_per_share: 134.87,
+  status: "complete",
+  company: Company.first
+})
+
