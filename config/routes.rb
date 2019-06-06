@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :companies
   resources :sessions, only: [:new, :create, :destroy]
   get '/dashboard', to: 'dashboards#show', as: 'dashboard'
+  get '/transactions', to: 'dashboards#transactions', as: 'transactions'
 end
