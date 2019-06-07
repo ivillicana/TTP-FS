@@ -18,17 +18,23 @@ class User < ApplicationRecord
   end
 
   def portfolio_value(user_companies, companies_hash)
-    portfolio_hash = {}
+    portfolio_hash = {
+      total_value: 0,
+      companies: {}
+    }
     # Create hash with total amount of shares for each user company
+    portfolio_companies = portfolio_hash[:companies]
     self.transactions.each do |t|
-      portfolio_hash[t.company.ticker_symbol] ||= Hash.new(0)
-      portfolio_hash[t.company.ticker_symbol][:shares] += t.shares_quantity
+      portfolio_companies[t.company.ticker_symbol] ||= Hash.new(0)
+      portfolio_companies[t.company.ticker_symbol][:shares] += t.shares_quantity
     end
     # Calculate total value of stock for each user company
     user_companies.each do |comp_symbol|
       latest_price = companies_hash[comp_symbol]["quote"]["latestPrice"]
-      shares_quantity =  portfolio_hash[comp_symbol][:shares]
-      portfolio_hash[comp_symbol][:value] = latest_price * shares_quantity
+      shares_quantity =  portfolio_companies[comp_symbol][:shares]
+      company_share_value = latest_price * shares_quantity
+      portfolio_companies[comp_symbol][:value] = company_share_value
+      portfolio_hash[:total_value] += company_share_value
     end
     portfolio_hash
   end

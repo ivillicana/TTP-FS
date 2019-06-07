@@ -3,12 +3,12 @@
 <div>
   <div><%= @user.name %></div>
   <div><%= @user.email %></div>
-  <div>$<%= @user.balance %></div>
+  <div><%= number_to_currency(@portfolio[:total_value]) %></div>
 </div>
 
 <div>
   <div id="portfolio-stocks">
-    <% @portfolio.each do |company_name, comp_hash| %>
+    <% @portfolio[:companies].each do |company_name, comp_hash| %>
       <div class="transaction-item">
         <div class="portfolio-stock-name">
           <%= company_name %>
@@ -17,7 +17,7 @@
           <%= pluralize(comp_hash[:shares], 'share')%>
         </div>
         <div class="portfolio-stock-value">
-          $<%= comp_hash[:value] %>
+          <%= number_to_currency(comp_hash[:value]) %>
         </div>
       </div>
     <% end %>
