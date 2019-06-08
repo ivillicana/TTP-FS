@@ -1,41 +1,40 @@
-<div class="wrapper">
-  
-
-  <div class="header">
-    <h1>Portfolio</h1>
-    <div><%= @user.name %></div>
-    <div><%= @user.email %></div>
-    <div><%= number_to_currency(@portfolio[:total_value]) %></div>
-  </div>
-
-    <div id="portfolio-stocks">
-      <% @portfolio[:companies].each do |company_name, comp_hash| %>
-        <div class="transaction-item">
-          <div class="portfolio-stock-name">
-            <%= company_name %>
-          </div>
-          <div class="portfolio-item-shares">
-            <%= pluralize(comp_hash[:shares], 'share')%>
-          </div>
-          <div class="portfolio-stock-value">
-            <%= number_to_currency(comp_hash[:value]) %>
-          </div>
-        </div>
-      <% end %>
+<div class="container">
+  <div class="wrapper">
+    <div class="header">
+      <h1>Portfolio</h1>
+      <div class="name"><%= @user.name %></div>
+      <div class="email"><%= @user.email %></div>
+      <div class="value"><%= number_to_currency(@portfolio[:total_value]) %></div>
     </div>
-    
-    <div id="portfolio-stock-buy">
-      <div>
-        <h3>Buy Stock</h3>
-        Cash - $<%= @user.balance %>
-      </div>
-      <div>
-        <%= form_tag('/transactions') do %>
-          <%= text_field_tag 'ticker_symbol' %>
-          <%= text_field_tag 'shares_quantity' %>
-          <%= submit_tag 'Buy' %>
+
+      <div id="portfolio-stocks">
+        <% @portfolio[:companies].each do |company_name, comp_hash| %>
+          <div class="transaction-item">
+            <div class="portfolio-stock-name">
+              <%= company_name %>
+            </div>
+            <div class="portfolio-item-shares">
+              <%= pluralize(comp_hash[:shares], 'share')%>
+            </div>
+            <div class="portfolio-stock-value">
+              <%= number_to_currency(comp_hash[:value]) %>
+            </div>
+          </div>
         <% end %>
       </div>
-    </div>
-  
+      
+      <div id="portfolio-stock-buy">
+        <div>
+          <h3>Buy Stock</h3>
+          Cash - $<%= @user.balance %>
+        </div>
+        <div>
+          <%= form_tag('/transactions') do %>
+            <%= text_field_tag 'ticker_symbol' %>
+            <%= text_field_tag 'shares_quantity' %>
+            <%= submit_tag 'Buy' %>
+          <% end %>
+        </div>
+      </div>
+  </div>
 </div>
