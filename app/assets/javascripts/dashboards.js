@@ -17,15 +17,13 @@ const getStockQuotes = () => {
   .then(data => {
     for (const ticker in data){
       const companyQuote = data[ticker].quote;
+      const companyNameValue = $(`#${ticker} .portfolio-stock-name, #${ticker} .portfolio-stock-value`);
       if (companyQuote.latestPrice === companyQuote.open) {
-        $(`#${ticker} .portfolio-stock-name`).addClass('neutral');
-        $(`#${ticker} .portfolio-stock-value`).addClass('neutral');
+        companyNameValue.addClass('neutral');
       } else if (companyQuote.latestPrice >= companyQuote.open){
-        $(`#${ticker} .portfolio-stock-name`).addClass('overperforming');
-        $(`#${ticker} .portfolio-stock-value`).addClass('overperforming');
+        companyNameValue.addClass('overperforming');
       } else {
-        $(`#${ticker} .portfolio-stock-name`).addClass('underperforming');
-        $(`#${ticker} .portfolio-stock-value`).addClass('underperforming');
+        companyNameValue.addClass('underperforming');
       }
     }
   });
