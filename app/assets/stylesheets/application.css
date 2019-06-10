@@ -131,3 +131,14 @@
   font-weight: 100;
   text-transform: uppercase;
 }
+
+/* DYNAMIC STOCK COLORS */
+.underperforming{
+  color: red;
+}
+.overperforming{
+  color: green;
+}
+.neutral{
+  color: gray;
+}

@@ -9,7 +9,7 @@
 
       <div id="portfolio-stocks">
         <% @portfolio[:companies].each do |company_name, comp_hash| %>
-          <div class="transaction-item">
+          <div id="<%= company_name %>" class="transaction-item">
             <div class="portfolio-stock-name">
               <%= company_name %>
             </div>
