@@ -1,0 +1,15 @@
+<div id="portfolio-stocks">
+    <% portfolio[:companies].each do |company_name, comp_hash| %>
+      <div id="<%= company_name %>" class="transaction-item">
+        <div class="portfolio-stock-name">
+          <%= company_name %>
+        </div>
+        <div class="portfolio-item-shares">
+          <%= pluralize(comp_hash[:shares], 'share')%>
+        </div>
+        <div class="portfolio-stock-value">
+          <%= number_to_currency(comp_hash[:value]) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
