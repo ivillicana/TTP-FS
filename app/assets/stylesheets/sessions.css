@@ -1,5 +1,5 @@
 .wrapper.session{
-  height: 400px;
+  height: 500px;
   max-width: 300px;
   margin: 0 auto;
   padding: 1.5em;
@@ -19,6 +19,7 @@
   grid-area: header;
   margin-bottom: 0.5em;
   letter-spacing: 2px;
+  text-align: center;
 }
 .session.form{
   grid-area: form;
