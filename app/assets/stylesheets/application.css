@@ -24,16 +24,18 @@
 
 .container{
   height: 100vh;
-  min-height: 600px;
+  min-height: 700px;
   min-width: 600px;
   background: linear-gradient(to right, #3878ace8, #9ec2eb);
-  display: grid;
-  align-items: center;
+  padding: 2em;
   font-family: 'Roboto Slab', serif;
 }
 
 .wrapper{
-  height: 90vh;
+  height: 90%;
+  max-height: 800px;
+  min-height: 650px;
+  max-width: 650px;
   margin: 0 auto;
   padding: 1.5em;
   display: grid;
