@@ -20,7 +20,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  font-family: 'Roboto Slab', serif;
+}
 
 .container{
   height: 100vh;
@@ -28,7 +30,6 @@
   min-width: 600px;
   background: linear-gradient(to right, #3878ace8, #9ec2eb);
   padding: 2em;
-  font-family: 'Roboto Slab', serif;
 }
 
 .wrapper.dashboard{
