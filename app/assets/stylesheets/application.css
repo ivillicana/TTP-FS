@@ -167,3 +167,9 @@
 .transactions-list{
   grid-area: trans;
 }
+.transaction-item.list-header{
+  margin-bottom: 1em;
+  letter-spacing: 2px;
+  font-weight: 700;
+  border: none;
+}
