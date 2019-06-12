@@ -4,14 +4,25 @@
         <h1>Transactions</h1>
       </div>
 
+      <div class="list-header"></div>
+
       <div class="transactions-list">
+          <div class="transaction-item list-header">
+            <div>Stock</div>
+            <div>Quantity</div>
+            <div>Price per Share</div>
+          </div>
+
           <% @transactions.each do |t| %>
             <div class="transaction-item">
               <div class="transaction-stock-name">
                 BUY (<%= t.company.ticker_symbol %>)
               </div>
+              <div class="transaction-stock-quantity">
+                <%= pluralize(t.shares_quantity, 'share') %> 
+              </div>
               <div class="transaction-stock-price">
-                <%= pluralize(t.shares_quantity, 'share') %> @ $<%= t.price_per_share %>
+                <%= number_to_currency(t.price_per_share) %>
               </div>
             </div>
           <% end %>
