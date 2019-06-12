@@ -10,6 +10,16 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
+    <div class="topnav">
+      <% if logged_in? %>
+        <%= link_to  "Dashboard", dashboard_path %>
+        <%= link_to  "Transactions", transactions_path %>
+        <%= link_to  "Log Out", session_path(current_user), method: :delete %>
+      <% else %>
+        <%= link_to  "Log In", new_session_path %>
+        <%= link_to  "Register", new_user_path %>
+      <% end %>
+    </div>
     <% flash.each do |name, msg| %>
         <div class="alert notice">
           <p><%= msg %></p>
