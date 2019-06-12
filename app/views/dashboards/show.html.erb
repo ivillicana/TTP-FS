@@ -4,7 +4,7 @@
       <h1>Portfolio</h1>
       <div class="name"><%= @user.name %></div>
       <div class="email"><%= @user.email %></div>
-      <div class="value"><%= number_to_currency(@portfolio[:total_value]) %></div>
+      <div class="value">Valuation: <%= number_to_currency(@portfolio[:total_value]) %></div>
     </div>
 
     <%= render_user_portfolio_stocks(@portfolio) %>
