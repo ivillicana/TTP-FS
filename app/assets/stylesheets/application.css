@@ -174,3 +174,11 @@ body{
   font-weight: 700;
   border: none;
 }
+
+/* ERRORS */
+.field_with_errors{
+  display: inline-block;
+}
+.field .field_with_errors input{
+  color: red !important;
+}
