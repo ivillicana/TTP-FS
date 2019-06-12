@@ -2,6 +2,9 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :companies, through: :transactions
 
+  validates :name, :email, :password, presence: true
+  validates :email, uniqueness: true
+
   has_secure_password
 
   def portfolio
