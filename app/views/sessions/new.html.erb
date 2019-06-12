@@ -1,22 +1,29 @@
-<h1>Log In</h1>
+<div class="container">
+  <div class="wrapper session">
+      <div class="header session">
+        <h1>Log In</h1>
+      </div>
 
-<div>
-  <%= form_for(:user, url: sessions_path) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+      <div class="session form">
+        <%= form_for(:user, url: sessions_path) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "jdoe@gmail.com" %>
+          </div>
+      
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "p@s$w0rd" %>
+          </div>
+      
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="session link">
+        <%= link_to  "Create an account", new_user_path %>
+      </div>
+  </div>
 </div>
-<div>
-  <%= link_to  "Create an account", new_user_path %>
-</div>
+
