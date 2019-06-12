@@ -1,4 +1,4 @@
-$('document').ready(function(){
+$('.dashboards.show').ready(function(){
   setTimer();
 });
 
