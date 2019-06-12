@@ -81,6 +81,13 @@ body{
   border-bottom: 1px solid #333;
   padding: .25em;
 }
+#portfolio-stocks-none{
+  grid-area: stocks;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
 
 #portfolio-stock-buy{
   grid-area: buy;
