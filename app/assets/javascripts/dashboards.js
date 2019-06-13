@@ -1,5 +1,6 @@
 $('.dashboards.show').ready(function(){
   setTimer();
+  setListenerOnSellStockForm();
 });
 
 const setTimer = () => {
@@ -29,4 +30,19 @@ const handleIEXQuoteResponse = (data) => {
       companyNameValue.addClass('underperforming');
     }
   }
+};
+
+const setListenerOnSellStockForm = () => {
+  $('#sell-button').click(event => sellStock(event));
+};
+
+const sellStock = (event) => {
+  const stockName = $('#ticker_symbol').val()
+  const sharesQuantity = $('#shares_quantity').val()
+  $.post(`/user/stocks/${stockName}`, 
+  {
+    ticker_symbol: stockName,
+    shares_quantity: sharesQuantity
+  })
+  .done((data) => location.reload());
 };
