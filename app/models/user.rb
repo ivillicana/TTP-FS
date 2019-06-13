@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :companies, through: :transactions
 
-  validates :name, :email, :password, presence: true
+  validates :name, :email, :password, presence: true, on: :create
   validates :email, uniqueness: true
 
   has_secure_password
