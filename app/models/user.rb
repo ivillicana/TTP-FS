@@ -27,7 +27,8 @@ class User < ApplicationRecord
     }
     # Create hash with total amount of shares for each user company
     portfolio_companies = portfolio_hash[:companies]
-    self.transactions.each do |t|
+    sorted_transactions = self.transactions.sort_by {|t| t.company.ticker_symbol }
+    sorted_transactions.each do |t|
       portfolio_companies[t.company.ticker_symbol] ||= Hash.new(0)
       portfolio_companies[t.company.ticker_symbol][:shares] += t.shares_quantity
     end
