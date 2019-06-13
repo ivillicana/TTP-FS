@@ -23,6 +23,9 @@ class Transaction < ApplicationRecord
   def self.attempt_sell(company_hash, user, quantity)
     transaction_price = (company_hash["latestPrice"] * quantity)
     company = Company.find_or_create_by(ticker_symbol: company_hash["symbol"], name: company_hash["companyName"])
+    current_shares = user.transactions.joins(:company).where(company_id: company.id).sum(:shares_quantity)
+    
+    return "Not valid quantity" if current_shares < quantity || quantity <= 0
     transaction_hash = {
       user: user,
       company: company,
