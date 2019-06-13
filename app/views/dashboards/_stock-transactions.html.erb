@@ -1,4 +1,4 @@
-<% @transactions.each do |t| %>
+<% @transactions.reverse.each do |t| %>
   <div class="transaction-item">
     <div class="transaction-stock-name">
       <%= t.shares_quantity > 0 ? "BUY" : "SELL" %>
