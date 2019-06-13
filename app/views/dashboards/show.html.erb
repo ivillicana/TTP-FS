@@ -12,7 +12,7 @@
       <div id="portfolio-stock-buy">
         <div class="stock-buy-header">
           <h2>Buy/Sell Stock</h2>
-          <p>Cash - $<%= @user.balance %></p>
+          <p>Cash - <%= number_to_currency(@user.balance) %></p>
         </div>
         <div class="purchase-form">
           <%= form_tag('/transactions') do %>
