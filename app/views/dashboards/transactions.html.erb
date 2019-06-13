@@ -13,19 +13,7 @@
             <div>Price per Share</div>
           </div>
 
-          <% @transactions.each do |t| %>
-            <div class="transaction-item">
-              <div class="transaction-stock-name">
-                BUY (<%= t.company.ticker_symbol %>)
-              </div>
-              <div class="transaction-stock-quantity">
-                <%= pluralize(t.shares_quantity, 'share') %> 
-              </div>
-              <div class="transaction-stock-price">
-                <%= number_to_currency(t.price_per_share) %>
-              </div>
-            </div>
-          <% end %>
+          <%= render_user_transactions(@transactions) %>
         </div>
   </div>
 </div>
