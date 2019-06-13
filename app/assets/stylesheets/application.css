@@ -25,16 +25,13 @@ body{
 }
 
 .container{
-  height: 100vh;
-  min-height: 700px;
+  min-height: 800px;
   min-width: 600px;
   background: linear-gradient(to right, #3878ace8, #9ec2eb);
   padding: 2em;
 }
 
 .wrapper.dashboard{
-  height: 90%;
-  max-height: 800px;
   min-height: 650px;
   max-width: 650px;
   margin: 0 auto;
@@ -71,7 +68,7 @@ body{
   grid-gap: 1em;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  align-content: center;
+  align-content: start;
 }
 .transaction-item{
   display: grid;
@@ -95,7 +92,7 @@ body{
   height: 100%;
   border-left: 1px solid #333;
   padding: 20px;
-  align-content: center;
+  align-content: start;
   text-align: center;
   display: grid;
   grid-template-columns: 1fr;
@@ -155,8 +152,6 @@ body{
 
 /* TRANSACTIONS PAGE */
 .wrapper.transactions{
-  height: 90%;
-  max-height: 800px;
   min-height: 650px;
   max-width: 650px;
   margin: 0 auto;
